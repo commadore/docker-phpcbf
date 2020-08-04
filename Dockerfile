@@ -1,12 +1,10 @@
-FROM php:7.1.1-alpine
+FROM php:7.4.8-alpine
 
-MAINTAINER herloct <herloct@gmail.com>
-
-ENV PHPCBF_VERSION=2.8.1
+LABEL authors="herloct <herloct@gmail.com>, commadore <mcommadore@protonmail.com>"
+ENV PHPCBF_VERSION=3.5.5
 
 RUN curl -L https://github.com/squizlabs/PHP_CodeSniffer/releases/download/$PHPCBF_VERSION/phpcbf.phar > /usr/local/bin/phpcbf \
     && chmod +x /usr/local/bin/phpcbf \
-
     && rm -rf /var/cache/apk/* /var/tmp/* /tmp/*
 
 VOLUME ["/project"]
